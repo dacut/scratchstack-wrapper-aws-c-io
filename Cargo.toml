@@ -1,0 +1,33 @@
+[package]
+name = "scratchstack-wrapper-aws-c-io"
+description = "Scratchstack Rust wrapper around the aws-c-io library"
+authors = ["David Cuthbert <dacut@kanga.org>"]
+edition = "2021"
+homepage = "https://github.com/dacut/scratchstack-wrapper-aws-c-io"
+license = "Apache-2.0"
+repository = "https://github.com/dacut/scratchstack-wrapper-aws-c-io"
+version = "0.1.0-alpha.5"
+build = "build.rs"
+include = [
+    "/include/aws/io/*.h",
+    "/include/aws/io/*.inl",
+    "/src",
+    "Cargo.toml",
+    "build.rs",
+]
+links = "aws-c-io"
+
+[lib]
+name = "scratchstack_wrapper_aws_c_io"
+crate-type = ["lib"]
+doctest = false
+
+[build-dependencies]
+bindgen = "^0.61"
+
+[dependencies]
+scratchstack-wrapper-aws-lc = "=0.1.0-alpha.5"
+scratchstack-wrapper-aws-c-common = "=0.1.0-alpha.5"
+scratchstack-wrapper-aws-c-cal = "=0.1.0-alpha.5"
+s2n-tls-sys = "0.0.18"
+libc = "^0.2"
